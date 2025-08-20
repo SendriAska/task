@@ -116,4 +116,18 @@ class UserController
         session_destroy();
         header('Location: /task/');
     }
+
+    public function viewUserProfile() {
+
+        $email = $_SESSION['email'];
+
+        $this->user->setEmail($email);
+        $user = $this->user->findUserByEmail();
+        $firstname = $user->getFirstname();
+        $lastname = $user->getLastname();
+        $userEmail = $user->getEmail();
+
+        include "App/View/viewUserProfil.php";
+
+    }
 }

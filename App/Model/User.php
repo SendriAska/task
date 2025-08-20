@@ -148,7 +148,7 @@ class User
             //Récupération de la valeur de name (category)
             $email = $this->email;
             //Ecrire la requête SQL
-            $request = "SELECT u.id_users AS idUser, u.firstname, u.lastname, u.password , u.img FROM users AS u WHERE u.email = ?";
+            $request = "SELECT u.id_users AS idUser, u.firstname, u.lastname, u.password , u.img , u.email FROM users AS u WHERE u.email = ?";
             //préparer la requête
             $req = $this->connexion->prepare($request);
             //assigner le paramètre

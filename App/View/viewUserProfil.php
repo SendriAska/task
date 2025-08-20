@@ -16,9 +16,9 @@
     <main class="container-fluid">
     <article>
         <h2> Profil utilisateur</h2>
-        <p>Nom : </p>
-        <p>Prénom : </p>
-        <p>Email : </p>
+        <p>Nom : <?= htmlspecialchars($lastname)?></p>
+        <p>Prénom : <?= htmlspecialchars($firstname)?> </p>
+        <p>Email : <?= htmlspecialchars($userEmail)?> </p>
         <a href="/user/update/password"></a><button>Changer le mot de passe</button>
     </article>    
     

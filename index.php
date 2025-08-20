@@ -77,7 +77,7 @@ if ( !isset($_SESSION["connected"])) {
             $taskController->terminateTask();
             break;
         case "/user/profil":
-            include "App/View/viewUserProfil.php";
+            $userController->viewUserProfile();
             break;
         default:
             $homeController->error404();
