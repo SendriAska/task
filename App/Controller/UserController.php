@@ -119,7 +119,7 @@ class UserController
 
     public function viewUserProfile() {
 
-        $email = $_SESSION['email'];
+        $email = Utilitaire:: sanitize($_SESSION['email']);
 
         $this->user->setEmail($email);
         $user = $this->user->findUserByEmail();
