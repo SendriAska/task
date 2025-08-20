@@ -79,6 +79,9 @@ if ( !isset($_SESSION["connected"])) {
         case "/user/profil":
             $userController->viewUserProfile();
             break;
+        case "/user/update/password":
+            $userController->updatePassword();
+            break;
         default:
             $homeController->error404();
             break;

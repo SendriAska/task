@@ -130,4 +130,34 @@ class UserController
         include "App/View/viewUserProfil.php";
 
     }
+
+    public function updatePassword()
+    {
+        $message = "";
+        if (isset($_POST["submit"])) {
+            if (!empty($_POST["password"]) && !empty($_POST["newPassword"]) && !empty($_POST["confirmPassword"])) {
+                $password = Utilitaire::sanitize($_POST["password"]);
+                $newPassword = Utilitaire::sanitize($_POST["newPassword"]);
+                $confirmPassword = Utilitaire::sanitize($_POST["confirmPassword"]);
+                $this->user->setPassword($password);
+                $this->user->setEmail($_SESSION["email"]);
+                // Test si le mdp est correct
+                if ($this->user->passwordVerify($this->user->findUserByEmail()->getPassword())) {
+                    if( $newPassword === $confirmPassword) {
+                        $this->user->setPassword($newPassword);
+                        $this->user->hashPassword();
+                        $this->user->updatePassword();
+                        $message = "Mot de passe mis à jour";
+                    }
+                    else {
+                        $message = "Les mots de passe ne correspondent pas";
+                    }
+                } else {
+                    $message = "le mot de passe est incorrect";
+                }
+            }
+        }
+
+        include "App/View/viewChangePassword.php";
+    }
 }

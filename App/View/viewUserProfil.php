@@ -19,7 +19,7 @@
         <p>Nom : <?= htmlspecialchars($lastname)?></p>
         <p>Prénom : <?= htmlspecialchars($firstname)?> </p>
         <p>Email : <?= htmlspecialchars($userEmail)?> </p>
-        <a href="/user/update/password"></a><button>Changer le mot de passe</button>
+        <a href="<?=BASE_URL?>/user/update/password"><button>Changer le mot de passe</button></a>
     </article>    
     
     </main>
